@@ -58,7 +58,11 @@ public class EmployeeAction extends ActionBase {
             putRequestScope(AttributeConst.FLUSH, flush);
             removeSessionScope(AttributeConst.FLUSH);
         }
+        
+        //一覧画面を表示
+        forward(ForwardConst.FW_TOP_INDEX);
     }
+    
         
         /**
          * 新規登録画面を表示する
@@ -70,8 +74,8 @@ public class EmployeeAction extends ActionBase {
             putRequestScope(AttributeConst.TOKEN, getTokenId()); //CSRF対策用トークン
             putRequestScope(AttributeConst.EMPLOYEE, new EmployeeView()); //空の従業員インスタンス
 
-        //一覧画面を表示
-        forward(ForwardConst.FW_EMP_INDEX);
+          //新規登録画面を表示
+            forward(ForwardConst.FW_EMP_NEW);
 
     }
 
